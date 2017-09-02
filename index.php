@@ -35,11 +35,7 @@
                 	<ul>
                         <?php
                             $f = fopen("categories.csv","r");
-                            while (true) {
-                                $data = fgetcsv($f, 500, ';');
-                                if ($data == null) {
-                                    break;
-                                }
+                            while ($data = fgetcsv($f, 500, ';')) {
                                 echo '<li><a href="#"><i class="fa fa-coffee"></i>'.$data[0]. '(' .$data[1]. 'Р) </a></li>';
                             }
                             fclose($f);
