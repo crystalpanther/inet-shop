@@ -34,11 +34,15 @@
                 <div class="left-sidebar-box-category-content">
                 	<ul>
                         <?php
-                            $categories = ['Чай', 'Кофе', 'Посуда', 'Компот', 'Мёд', 'Мате'];
-
-                            foreach ($categories as $category) {
-                                echo '<li><a href="#"><i class="fa fa-coffee"></i>'.$category.'</a></li>';
+                            $f = fopen("categories.csv","r");
+                            while (true) {
+                                $data = fgetcsv($f, 500, ';');
+                                if ($data == null) {
+                                    break;
+                                }
+                                echo '<li><a href="#"><i class="fa fa-coffee"></i>'.$data[0]. '(' .$data[1]. 'Р) </a></li>';
                             }
+                            fclose($f);
                         ?>
                     </ul>
                 </div>
