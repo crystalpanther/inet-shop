@@ -34,11 +34,16 @@
                 <div class="left-sidebar-box-category-content">
                 	<ul>
                         <?php
-                            $link = mysqli_connect("localhost","root","","inet-shop");
+                            $link = @mysqli_connect("localhost","root","","inet-shop") or die("no connect");
                             mysqli_set_charset($link, "utf8");
                             $result = mysqli_query($link, "SELECT * FROM categories");
-                            while ($row = mysqli_fetch_array($result)) {
-                                echo '<li><a href="#"><i class="fa fa-coffee"></i>'.$row["title"]. ' </a></li>';
+                            if (!$result) {
+                                echo mysqli_error($link);
+                            }
+                            else {
+                                while ($row = mysqli_fetch_array($result)) {
+                                    echo '<li><a href="#"><i class="fa fa-coffee"></i>'.$row["title"]. ' </a></li>';
+                                }
                             }
                             mysqli_close($link);
                         ?>
