@@ -34,11 +34,13 @@
                 <div class="left-sidebar-box-category-content">
                 	<ul>
                         <?php
-                            $f = fopen("categories.csv","r");
-                            while ($data = fgetcsv($f, 500, ';')) {
-                                echo '<li><a href="#"><i class="fa fa-coffee"></i>'.$data[0]. '(' .$data[1]. 'Р) </a></li>';
+                            $link = mysqli_connect("localhost","root","","inet-shop");
+                            mysqli_set_charset($link, "utf8");
+                            $result = mysqli_query($link, "SELECT * FROM categories");
+                            while ($row = mysqli_fetch_array($result)) {
+                                echo '<li><a href="#"><i class="fa fa-coffee"></i>'.$row["title"]. ' </a></li>';
                             }
-                            fclose($f);
+                            mysqli_close($link);
                         ?>
                     </ul>
                 </div>
