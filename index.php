@@ -54,78 +54,20 @@
         </div>
         <div class="right-sidebar">
         	<div class="catalog">
-            	<a href="tovar.html" class="catalog-element">
+                <?php
+                $d = fopen("tovar.csv","r");
+                while ($data = fgetcsv($d, 500, ';')) {
+                    echo '<a href="tovar.html" class="catalog-element">
                     <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/gaba_alishan.jpg);"><img src="img/tovar/tea/gaba_alishan.jpg"></div>
+                    	<div class="img" style="background-image:url(img/tovar/tea/'.$data[2].');"><img src="img/tovar/tea/'.$data[2].'"></div>
                         <div class="catalog-rounded"></div>
-                        <div class="catalog-price">430 руб.</div>
+                        <div class="catalog-price">'.$data[1].'руб'.'</div>
                     </div>
-                    <div class="catalog-title">Габа Алишань</div>
-                </a>
-            	<a href="tovar.html" class="catalog-element">
-                    <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/dahunpao.jpg);"><img src="img/tovar/tea/dahunpao.jpg"></div>
-                        <div class="catalog-rounded"></div>
-                        <div class="catalog-price">540 руб.</div>
-                    </div>
-                    <div class="catalog-title">Да Хун Пао</div>
-                </a>
-            	<a href="tovar.html" class="catalog-element">
-                    <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/jasminulun.jpg);"><img src="img/tovar/tea/jasminulun.jpg"></div>
-                        <div class="catalog-rounded"></div>
-                        <div class="catalog-price">285 руб.</div>
-                    </div>
-                    <div class="catalog-title">Жасминовый Улун</div>
-                </a>
-            	<a href="tovar.html" href="tovar.html" class="catalog-element">
-                    <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/gaba_alishan.jpg);"><img src="img/tovar/tea/gaba_alishan.jpg"></div>
-                        <div class="catalog-rounded"></div>
-                        <div class="catalog-price">430 руб.</div>
-                    </div>
-                    <div class="catalog-title">Габа Алишань</div>
-                </a>
-            	<a href="tovar.html" class="catalog-element">
-                    <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/dahunpao.jpg);"><img src="img/tovar/tea/dahunpao.jpg"></div>
-                        <div class="catalog-rounded"></div>
-                        <div class="catalog-price">540 руб.</div>
-                    </div>
-                    <div class="catalog-title">Да Хун Пао</div>
-                </a>
-            	<a href="tovar.html" class="catalog-element">
-                    <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/jasminulun.jpg);"><img src="img/tovar/tea/jasminulun.jpg"></div>
-                        <div class="catalog-rounded"></div>
-                        <div class="catalog-price">285 руб.</div>
-                    </div>
-                    <div class="catalog-title">Жасминовый Улун</div>
-                </a>
-            	<a href="tovar.html" href="tovar.html" class="catalog-element">
-                    <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/gaba_alishan.jpg);"><img src="img/tovar/tea/gaba_alishan.jpg"></div>
-                        <div class="catalog-rounded"></div>
-                        <div class="catalog-price">430 руб.</div>
-                    </div>
-                    <div class="catalog-title">Габа Алишань</div>
-                </a>
-            	<a href="tovar.html" class="catalog-element">
-                    <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/dahunpao.jpg);"><img src="img/tovar/tea/dahunpao.jpg"></div>
-                        <div class="catalog-rounded"></div>
-                        <div class="catalog-price">540 руб.</div>
-                    </div>
-                    <div class="catalog-title">Да Хун Пао</div>
-                </a>
-            	<a href="tovar.html" class="catalog-element">
-                    <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/jasminulun.jpg);"><img src="img/tovar/tea/jasminulun.jpg"></div>
-                        <div class="catalog-rounded"></div>
-                        <div class="catalog-price">285 руб.</div>
-                    </div>
-                    <div class="catalog-title">Жасминовый Улун</div>
-                </a>
+                    <div class="catalog-title">'.$data[0].'</div>
+                </a>';
+                }
+                fclose($d);
+                ?>
             </div>
         </div>
         <div class="clear"></div>
