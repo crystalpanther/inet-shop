@@ -61,19 +61,40 @@
         </div>
         <div class="right-sidebar">
         	<div class="catalog">
+<!--                --><?php
+//                $d = fopen("tovar.csv","r");
+//                while ($data = fgetcsv($d, 500, ';')) {
+//                    echo '<a href="tovar.html" class="catalog-element">
+//                    <div class="catalog-image">
+//                    	<div class="img" style="background-image:url(img/tovar/tea/'.$data[2].');"><img src="img/tovar/tea/'.$data[2].'"></div>
+//                        <div class="catalog-rounded"></div>
+//                        <div class="catalog-price">'.$data[1].'руб'.'</div>
+//                    </div>
+//                    <div class="catalog-title">'.$data[0].'</div>
+//                </a>';
+//                }
+//                fclose($d);
+//                ?>
                 <?php
-                $d = fopen("tovar.csv","r");
-                while ($data = fgetcsv($d, 500, ';')) {
-                    echo '<a href="tovar.html" class="catalog-element">
-                    <div class="catalog-image">
-                    	<div class="img" style="background-image:url(img/tovar/tea/'.$data[2].');"><img src="img/tovar/tea/'.$data[2].'"></div>
-                        <div class="catalog-rounded"></div>
-                        <div class="catalog-price">'.$data[1].'руб'.'</div>
-                    </div>
-                    <div class="catalog-title">'.$data[0].'</div>
-                </a>';
+                $link = @mysqli_connect("localhost","root","","inet-shop") or die("no connect");
+                mysqli_set_charset($link, "utf8");
+                $result = mysqli_query($link, "SELECT * FROM tovar");
+                if (!$result) {
+                    echo mysqli_error($link);
                 }
-                fclose($d);
+                else {
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<a href="tovar.html" class="catalog-element">
+                    <div class="catalog-image">
+                    <div class="img" style="background-image:url(img/tovar/' .$row['image']. ' );"><img src="img/tovar/' .$row['image']. '"></div>
+                        <div class="catalog-rounded"></div>
+                        <div class="catalog-price">'.$row["price"].'руб'.'</div>
+                    </div>
+                    <div class="catalog-title">'.$row["title"].'</div>
+                </a>';
+                    }
+                }
+                mysqli_close($link);
                 ?>
             </div>
         </div>
