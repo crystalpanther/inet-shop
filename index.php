@@ -17,10 +17,13 @@
             <div class="burger"><span></span><span></span><span></span></div>
             <ul class="ul-header-nav">
                 <li><a href="contacts.html">Контакты</a></li>
-                <li><a href="#">Авторизация</a></li>
-                <li><a href="#">Регистрация</a></li>
-                <?= '<li><a href="#">Выход ('.$_GET['user'].')</a></li>';
-                ?>
+                <?php session_start(); ?>
+                <?php if(!isset($_SESSION['user'])): ?>
+                    <li><a href="sign_in.html">Авторизация</a></li>
+                    <li><a href="#">Регистрация</a></li>
+                <?php else: ?>
+                    <?= '<li><a href="sign_out.php">Выход</a></li>'; ?>
+                <?php endif; ?>
             </ul>
         </nav>
         <div class="clear"></div>
