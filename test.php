@@ -62,7 +62,12 @@ class Puer extends Tea {
 }
 
 class Coffee extends Item {
-
+    private $degreeOfRoasting;
+    private $type;
+    public function __construct($title, $price)
+    {
+        parent::__construct($title, $price);
+    }
 }
 //----------------------------------
 $item = new Item('чай', 300);
