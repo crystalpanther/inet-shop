@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="./css/road.css">
 </head>
 <body>
+<form action="road.php">
+    <label for="fromCity">Откуда</label>
+    <select name="fromCity" id="fromCity">
+        <option value="barcelona">Barcelona</option>
+        <option value="geronaAirport">Gerona Airport</option>
+        <option value="madrid">Madrid</option>
+        <option value="stockholm">Stockholm</option>
+        <option value="newYorkJFK">New York JFK</option>
+    </select>
+    <label for="toCity">Куда</label>
+    <select name="toCity" id="toCity">
+        <option value="barcelona">Barcelona</option>
+        <option value="geronaAirport">Gerona Airport</option>
+        <option value="madrid">Madrid</option>
+        <option value="stockholm">Stockholm</option>
+        <option value="newYorkJFK">New York JFK</option>
+    </select>
+    <input type="button" value="Найти" onclick="main()">
 
+</form>
+<div class="output" id="output" >
+    <p></p>
+</div>
 <script src="js/road.js"></script>
 </body>
 </html>

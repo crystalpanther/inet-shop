@@ -1,0 +1,8 @@
+body, html {
+    width: 100%;
+    overflow: hidden;
+    padding: 50px 100px;
+}
+form label {
+    margin: 0 10px;
+}

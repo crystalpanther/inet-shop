@@ -44,11 +44,11 @@ function findFirstCard() {
         for (var n = 0; n < cards.length; n++) {
             var to = cards[n].to;
             if (from == to) {
-                console.log("from " + from + " to " + to);
+                //console.log("from " + from + " to " + to);
                isFound = true;
                break;
             }
-            console.log('to ' + to);
+            //console.log('to ' + to);
         }
         if (!isFound) {
             return cards[i];
@@ -56,14 +56,34 @@ function findFirstCard() {
     }
     return null;
 }
+function nextCard() {
 
-function sortCards () {
+}
+
+function findLastCard() {
+    var isFound;
+    for (var i = 0; i < cards.length; i++) {
+        var from = cards[i].to;
+        isFound = false;
+        for (var n = 0; n < cards.length; n++) {
+            var to = cards[n].from;
+            if (from == to) {
+                //console.log("from " + from + " to " + to);
+                isFound = true;
+                break;
+            }
+            //console.log('to ' + to);
+        }
+        if (!isFound) {
+            return cards[i];
+        }
+    }
+    return null;
 
 }
 
 window.addEventListener('load', main);
 
 function main() {
-    console.log('main');
-        console.log(findFirstCard());
+    console.log(findFirstCard(), findLastCard());
 }
