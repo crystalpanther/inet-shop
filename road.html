@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./css/road.css">
 </head>
 <body>
-<form action="road.php">
+<form action="">
     <label for="fromCity">Откуда</label>
     <select name="fromCity" id="fromCity">
         <option value="barcelona">Barcelona</option>
@@ -23,11 +23,11 @@
         <option value="stockholm">Stockholm</option>
         <option value="newYorkJFK">New York JFK</option>
     </select>
-    <input type="button" value="Найти" onclick="main()">
+    <input type="button" value="Найти" id="button" name="button">
 
 </form>
-<div class="output" id="output" >
-    <p></p>
+<div class="output"  >
+    <p id="output"></p>
 </div>
 <script src="js/road.js"></script>
 </body>

@@ -35,7 +35,7 @@ var cards = [
         seat: "35B"
     }
 ];
-
+var firstCard;
 function findFirstCard() {
     var isFound;
     for (var i = 0; i < cards.length; i++) {
@@ -51,7 +51,7 @@ function findFirstCard() {
             //console.log('to ' + to);
         }
         if (!isFound) {
-            return cards[i];
+           return cards[i];
         }
     }
     return null;
@@ -59,7 +59,6 @@ function findFirstCard() {
 function nextCard() {
 
 }
-
 function findLastCard() {
     var isFound;
     for (var i = 0; i < cards.length; i++) {
@@ -82,8 +81,16 @@ function findLastCard() {
 
 }
 
-window.addEventListener('load', main);
+//console.log(findFirstCard().from);
 
-function main() {
-    console.log(findFirstCard(), findLastCard());
-}
+window.onload = function(){
+    var output = document.getElementById("output");
+    var button = document.getElementById("button");
+    button.onclick = function() {
+        //findLastCard();
+        document.getElementById("output").innerHTML = "Take train 78A from " + findFirstCard().from + "  " +
+            "to " + findFirstCard().to + ". " + "Seat 45B" + "<br>";
+
+        // console.log(findFirstCard(), findLastCard());
+    };
+};
