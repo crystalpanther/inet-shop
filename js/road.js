@@ -56,9 +56,7 @@ function findFirstCard() {
     }
     return null;
 }
-function nextCard() {
 
-}
 function findLastCard() {
     var isFound;
     for (var i = 0; i < cards.length; i++) {
@@ -81,7 +79,19 @@ function findLastCard() {
 
 }
 
-//console.log(findFirstCard().from);
+var card = [];
+function sortsCard() {
+    for (var i = 0; i < cards.length; i++) {
+        for (var n = 0; n < cards.length; n++) {
+            if (cards[i].from == cards[n].to) {
+                card.push(cards[n], cards[i]);
+                return card;
+            }
+        }
+    }
+}
+sortsCard();
+console.log(card);
 
 window.onload = function(){
     var output = document.getElementById("output");
