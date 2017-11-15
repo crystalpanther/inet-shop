@@ -1,4 +1,8 @@
 /**
  * Created by elina on 11/13/2017.
  */
-selectCityFrom();
+
+'use strict';
+
+var selectCity;
+console.log(sortedCards, cards);
